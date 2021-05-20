@@ -13,7 +13,7 @@ def prefilter_items(data):
     data = data[~data['item_id'].isin(top_notpopular)]
     
     # Уберем товары, которые не продавались за последние 12 месяцев
-    not_sales = popularity[popularity['trans_time'] > 365].item_id.tolist()
+    not_sales = popularity[popularity['week_no'] > 52].item_id.tolist()
     data = data[~data['item_id'].isin(not_sales)]
     
     # Уберем не интересные для рекоммендаций категории (department)
