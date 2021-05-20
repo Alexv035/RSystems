@@ -28,7 +28,7 @@ def prefilter_items(data):
     sales_exp = popularity[popularity['sales_value'] > 10].item_id.tolist()
     data = data[~data['item_id'].isin(sales_exp)]
     
-    # ...
+    return data
     
 def postfilter_items(user_id, recommednations):
     pass
